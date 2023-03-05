@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7644a4b0883c37143b7dac389fc17185, type: 3}
+  m_Name: Enemy TIles
+  m_EditorClassIdentifier: 
+  Tiles:
+  - {fileID: 838478930, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: -1015119854, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: 1063316302, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: -1054467774, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: 124121329, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: -1815578502, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: -1382289038, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  - {fileID: -253290692, guid: 414a552a6aecb3b4580bb721fc306bea, type: 3}
+  IsWalkable: 0
+  Weight: 0
