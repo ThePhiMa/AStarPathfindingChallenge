@@ -42,7 +42,11 @@ namespace Sleep0.Logic.Grid
             this.ParentNode = null;
             this.Neighbours = new GridNode2D<T>[4];
 
-            this.Value = GameObject.Instantiate(value, new Vector3(x, y, 0f), Quaternion.identity, parent);
+            // This is the part where my use of the generics breaks apart.
+            // Since my first use for T was to pass the prefab gameobject which holds the sprite and renderer,
+            // I needed to instantiate it as a monobehaviour.
+            // BUT this means I have to pass it all the way down which creates an extra dependency on the "parent" classes.
+            this.Value = GameObject.Instantiate(value, new Vector3(x, y, 0.01f), Quaternion.identity, parent);
             Value.transform.parent = parent;
             Value.SetRandomTileSprite();
         }

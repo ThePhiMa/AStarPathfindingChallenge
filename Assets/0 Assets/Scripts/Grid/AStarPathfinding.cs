@@ -26,8 +26,7 @@ namespace Sleep0.Logic.Pathfinding
         }
 
         /// <summary>
-        /// Simple A* pathfinding from a start node to a target node.
-        /// Based on: https://www.geeksforgeeks.org/a-search-algorithm/ and https://brilliant.org/wiki/a-star-search/
+        /// Simple A* pathfinding from a start node to a target node.        
         /// </summary>
         /// <param name="startNode">Start node for the path finding.</param>
         /// <param name="targetNode">Target node to reach.</param>
@@ -37,6 +36,7 @@ namespace Sleep0.Logic.Pathfinding
             return FindPathToNode(startNode, targetNode);
         }
 
+        // Based on: https://www.geeksforgeeks.org/a-search-algorithm/ and https://brilliant.org/wiki/a-star-search/
         private Stack<GridNode2D<T>> FindPathToNode(GridNode2D<T> fromNode, GridNode2D<T> toNode)
         {
             _grid2D.ResetCosts();
