@@ -42,7 +42,7 @@ namespace Sleep0
 
             _player.SetGrid2D(_grid);
 
-            // Since the player position is at the [0,0] node, select this as the start node
+            // Since the player position is at the [0,0] node, select this as the start node.
             _startNode = _grid.GetNode(0, 0);
         }
 
@@ -57,11 +57,12 @@ namespace Sleep0
                 {
                     _foundPath = _aStar.CalculatePath(_startNode, _targetNode);
 
-                    // Color nodes for debug purposes
+                    // Color nodes for debug purposes.
                     _grid.ColorPath(_foundPath, Color.cyan);
                     _grid.ColorNode(_startNode, Color.green);
                     _grid.ColorNode(_targetNode, Color.yellow);
 
+                    _foundPath.Push(_startNode);
                     _player.SetPath(_foundPath);
                 }
             }

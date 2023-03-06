@@ -56,14 +56,13 @@ namespace Sleep0.Logic
             if (path.Count == 0) return;
 
             _waypoints = path;
-            _currentWaypoint = path.Peek();
+            _currentWaypoint = path.Pop();
             SimplePathSmoothing();
         }
 
         private void SimplePathSmoothing()
-        {
+        {            
             Debug.Log(string.Format("SimplePathSmoothing start at [{0}|{1}]", _currentWaypoint.X, _currentWaypoint.Y));
-            _currentWaypoint = _waypoints.Pop();
 
             // If we have more than one waypoint, try to "cut corners" in the path and check if the player can move diagonally
             if (_waypoints.Count > 1)
@@ -71,7 +70,7 @@ namespace Sleep0.Logic
                 _isDiagonalPathWalkable = false;
 
                 // Make a temporary copy of the waypoint stack, because I need to look at the second element.
-                // But this is bad practice and generates garbage. Yeah, I know, this also kinda defeats the purpose of the stack, but errare humanum est, right? ;)
+                // I know this bad practice and generates garbage, plus this also kinda defeats the purpose of the stack, but errare humanum est and I'm aready over my time estimate, so... 
                 _tmpWaypoints = new Stack<GridNode2D<GridTile>>(_waypoints.Reverse());
                 _tmpWaypoints.Pop();                    // Now pop once...
                 _futureWaypoint = _tmpWaypoints.Pop();  // ... and twice for the _correct_ waypoint.
@@ -100,10 +99,14 @@ namespace Sleep0.Logic
 
                 if (_isDiagonalPathWalkable)
                 {
-                    _currentWaypoint = _waypoints.Pop();
-                    Debug.Log(string.Format("Path is diagonally walkable, new target waypoint [{0}{1}]!", _currentWaypoint.X, _currentWaypoint.Y));
-                }
+                    // Pop once to get the next waypoint in line (basically skipping one).
+                    _waypoints.Pop();
+                    Debug.Log("Path is diagonally walkable!");
+                }                
             }
+
+            _currentWaypoint = _waypoints.Pop();
+            Debug.Log(string.Format("New target waypoint [{0}|{1}]!", _currentWaypoint.X, _currentWaypoint.Y));
 
             _targetPosition = _currentWaypoint.WorldPosition;
             Debug.Log("SimplePathSmoothing end.");

@@ -40,12 +40,12 @@ namespace Sleep0.Logic.Grid
 
             int rand = 0;
 
-            // Calculate some random blocking tiles
+            // Calculate some random blocking tiles.
             List<int> blockingTileIndices = new List<int>();
             for (int i = 0; i < numberOfBlockingTiles; i++)
                 blockingTileIndices.Add(Random.Range(0, _width) + Random.Range(0, _height) * _height);
 
-            // Generate the grid
+            // Generate the grid.
             for (int x = 0; x < _width; x++)
             {
                 for (int y = 0; y < _height; y++)
@@ -53,13 +53,13 @@ namespace Sleep0.Logic.Grid
                     _debugTextMeshes[x, y] = GameObject.Instantiate(_gridNodeUIPrefab, _parent).GetComponent<GridNodeUI>(); //VisualTools.CreateWorldText(_parent, "0", GetWorldPosition(x, y), 20);
                     _debugTextMeshes[x, y].transform.position = new Vector3(x, y, 0);
 
-                    // Generate some random blocking tiles (except at the starting 0,0 location) (Not very performant, but since it's only done at startup, it shouls be fine)
+                    // Generate some random blocking tiles (except at the starting 0,0 location) (Not very performant, but since it's only done at startup, it should be fine).
                     if (blockingTileIndices.Contains(x + y * _height) && (x > 0 && y > 0))
                     {
                         rand = Random.Range(0, blockingTiles.Length - 1);
                         _gridArray[x, y] = new GridNode2D<T>(x, y, 1, blockingTiles[rand], _parent);
                     }
-                    else // Generate random walkable tiles
+                    else // Generate random walkable tiles.
                     {
                         rand = Random.Range(0, walkableTiles.Length - 1);
                         _gridArray[x, y] = new GridNode2D<T>(x, y, 1, walkableTiles[rand], _parent);
@@ -69,7 +69,7 @@ namespace Sleep0.Logic.Grid
                 }
             }
 
-            // Calculate all neighbors
+            // Calculate all neighbors.
             for (int x = 0; x < _width; x++)
             {
                 for (int y = 0; y < _height; y++)

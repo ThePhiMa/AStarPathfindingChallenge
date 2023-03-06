@@ -17,7 +17,7 @@ namespace Sleep0.Logic.Grid
         public float Weight;        // Cost of node n.
         public float GCost;         // Cost of reaching node n.
         public float HCost;         // Estimated cost from n to goal. This is the heuristic part of the cost function, so it is like a guess.
-        public float FCost          // Total estimated cost of path through node n. f(n) = g(n) + h(n)
+        public float FCost          // Total estimated cost of path through node n. f(n) = g(n) + h(n).
         {
             get
             {
