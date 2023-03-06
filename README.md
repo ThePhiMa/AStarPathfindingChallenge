@@ -9,6 +9,7 @@ Total hours spend: 11
 - 1h for refactoring the code structure
 - And way too long for playing around with different smoothing algorithms for the pathfinding. I really wanted to use bézier smoothing and tried implementing some ideas, but I eventually reached the time limit of 10 hours I set for myself and then had to quickly hack together some poorly working diagonally path smoothing.
 - 1 last hour to clean up the code
+(+ 30min a day later for a quick bugfix and some code cleanup)
 
 Final thoughts on the code:
 - I really wanted to use generics because I like using them since they are the embodiment of the DRY principle (and it feels fancy), but I don’t care much that now the AStarPathfinding class needs to know the exact type of GridNode2D. But finding a solution for this felt out of scope.
