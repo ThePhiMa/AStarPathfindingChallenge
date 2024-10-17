@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Sleep0
 {
+	// Pathfinding test class
     public class GridPathfindingTest : MonoBehaviour
     {
         [SerializeField]
